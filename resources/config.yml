@@ -1,0 +1,19 @@
+# basic config
+host:
+  port: 8085
+  name: localhost
+  protocol: http
+
+database:
+  type: postgres
+  host: localhost
+  port: 5432
+  username: postgres
+  password: fm210680
+  database: cookbook
+  synchronize: true
+  logging: false
+
+# Remove this, sample extra config
+sample:
+  title: A full node backend
