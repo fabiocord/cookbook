@@ -1,0 +1,18 @@
+
+    web:        
+        image: fabiocord/cookbook
+        command: npm start
+        ports:
+            - "8085:8085"
+        links:
+            - db
+        
+    db:
+        image: postgres
+        ports:
+        - "32787:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: fm210680
+            POSTGRES_DB: cookbookdb
+

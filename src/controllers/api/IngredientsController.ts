@@ -15,4 +15,13 @@ export class ApiIngredientController{
     async getOneIngredientAction(@EntityFromParam('id') ingredient: Ingredient): Promise<any> {
         return  ingredient;
     }
+
+    @Get('/')
+    async getIngredientsAction(): Promise<any> {
+        const ingredients: Ingredient[] = await this.ingredients.getAll();
+        const data = ingredients.map(ingredient => {
+          return  {lista : [ingredient]};
+        }); 
+        return data       
+    }
 }

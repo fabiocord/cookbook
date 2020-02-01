@@ -23,18 +23,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const typedi_1 = require("typedi");
 const IngredientService_1 = require("../../services/IngredientService");
-const ResourceProvider_1 = require("../../services/ResourceProvider");
 const typeorm_routing_controllers_extensions_1 = require("typeorm-routing-controllers-extensions");
 const Ingredient_1 = require("../../model/Ingredient");
 let ApiIngredientController = class ApiIngredientController {
     getOneIngredientAction(ingredient) {
         return __awaiter(this, void 0, void 0, function* () {
-            return {
-                //   links: [
-                //       this.resources.getResource('self', '/api/ingredients', ingredient.id)
-                //   ],
-                ingredient
-            };
+            return ingredient;
         });
     }
 };
@@ -42,10 +36,6 @@ __decorate([
     typedi_1.Inject(),
     __metadata("design:type", IngredientService_1.IngredientService)
 ], ApiIngredientController.prototype, "ingredients", void 0);
-__decorate([
-    typedi_1.Inject(),
-    __metadata("design:type", ResourceProvider_1.ResourceProvider)
-], ApiIngredientController.prototype, "resources", void 0);
 __decorate([
     routing_controllers_1.Get('/:id'),
     __param(0, typeorm_routing_controllers_extensions_1.EntityFromParam('id')),

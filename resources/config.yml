@@ -6,11 +6,11 @@ host:
 
 database:
   type: postgres
-  host: localhost
+  host: db
   port: 5432
   username: postgres
   password: fm210680
-  database: cookbook
+  database: cookbookdb
   synchronize: true
   logging: false
 
