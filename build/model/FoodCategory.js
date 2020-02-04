@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const Recipe_1 = require("./Recipe");
 /**
  * Sample ORM entity
  */
@@ -38,11 +37,6 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Boolean)
 ], FoodCategory.prototype, "enabled", void 0);
-__decorate([
-    typeorm_1.ManyToMany(type => Recipe_1.Recipe, recipe => recipe.foodCategories),
-    typeorm_1.JoinTable(),
-    __metadata("design:type", Array)
-], FoodCategory.prototype, "recipes", void 0);
 FoodCategory = __decorate([
     typeorm_1.Entity()
 ], FoodCategory);

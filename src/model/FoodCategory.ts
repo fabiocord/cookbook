@@ -1,5 +1,4 @@
 import {Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable} from "typeorm";
-import { Recipe } from "./Recipe";
 
 /**
  * Sample ORM entity
@@ -18,9 +17,5 @@ export class FoodCategory {
 
     @Column()
     public enabled: boolean = true;    
-
-    @ManyToMany(type => Recipe, recipe => recipe.foodCategories)
-    @JoinTable()
-    public recipes: Recipe[];
-    
+ 
 }

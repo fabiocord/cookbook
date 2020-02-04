@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const RecipeIngredient_1 = require("./RecipeIngredient");
 const Unit_1 = require("./Unit");
 /**
  * Sample ORM entity
@@ -33,11 +32,6 @@ __decorate([
     typeorm_1.Column({ length: 255 }),
     __metadata("design:type", String)
 ], Ingredient.prototype, "image", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.ingredient) // note: we will create author property in the Photo class below
-    ,
-    __metadata("design:type", Array)
-], Ingredient.prototype, "recipeIngredients", void 0);
 __decorate([
     typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.ingredients),
     __metadata("design:type", Unit_1.Unit)

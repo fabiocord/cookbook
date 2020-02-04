@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const FoodCategory_1 = require("./FoodCategory");
-const RecipeIngredient_1 = require("./RecipeIngredient");
 const RecipeInstruction_1 = require("./RecipeInstruction");
 const User_1 = require("./User");
 /**
@@ -50,15 +49,10 @@ __decorate([
     __metadata("design:type", String)
 ], Recipe.prototype, "image", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => FoodCategory_1.FoodCategory, foodCategory => foodCategory.recipes),
+    typeorm_1.ManyToMany(type => FoodCategory_1.FoodCategory),
     typeorm_1.JoinTable(),
     __metadata("design:type", Array)
 ], Recipe.prototype, "foodCategories", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.recipe) // note: we will create author property in the Photo class below
-    ,
-    __metadata("design:type", Array)
-], Recipe.prototype, "recipeIngredients", void 0);
 __decorate([
     typeorm_1.OneToMany(type => RecipeInstruction_1.ReceipInstruction, recipeInstruction => recipeInstruction.recipe) // note: we will create author property in the Photo class below
     ,

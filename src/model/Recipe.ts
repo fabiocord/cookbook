@@ -1,6 +1,5 @@
 import {Column, Entity, PrimaryGeneratedColumn, JoinTable, ManyToMany, OneToMany, ManyToOne} from "typeorm";
 import { FoodCategory } from './FoodCategory';
-import { RecipeIngredient } from './RecipeIngredient';
 import { ReceipInstruction as RecipeInstruction } from "./RecipeInstruction";
 import { User } from "./User";
 
@@ -28,12 +27,9 @@ export class Recipe {
     @Column({length: 255})
     public image: string;
     
-    @ManyToMany(type => FoodCategory, foodCategory => foodCategory.recipes)
+    @ManyToMany(type => FoodCategory)
     @JoinTable()
     public foodCategories: FoodCategory[];
-
-    @OneToMany(type => RecipeIngredient, recipeIngredient => recipeIngredient.recipe) // note: we will create author property in the Photo class below
-    recipeIngredients: RecipeIngredient[];
 
     @OneToMany(type => RecipeInstruction, recipeInstruction => recipeInstruction.recipe) // note: we will create author property in the Photo class below
     recipeInstructions: RecipeInstruction[];
