@@ -11,39 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const RecipeIngredient_1 = require("./RecipeIngredient");
-const Unit_1 = require("./Unit");
+const Ingredient_1 = require("./Ingredient");
 /**
  * Sample ORM entity
  */
-let Ingredient = class Ingredient {
+let Unit = class Unit {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Ingredient.prototype, "id", void 0);
+], Unit.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ length: 100 }),
+    typeorm_1.Column({ length: 10 }),
     __metadata("design:type", String)
-], Ingredient.prototype, "name", void 0);
+], Unit.prototype, "name", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Ingredient.prototype, "description", void 0);
+], Unit.prototype, "description", void 0);
 __decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], Ingredient.prototype, "image", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.ingredient) // note: we will create author property in the Photo class below
-    ,
+    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.unit),
     __metadata("design:type", Array)
-], Ingredient.prototype, "recipeIngredients", void 0);
+], Unit.prototype, "recipeIngredients", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.ingredients),
-    __metadata("design:type", Unit_1.Unit)
-], Ingredient.prototype, "unit", void 0);
-Ingredient = __decorate([
+    typeorm_1.OneToMany(type => Ingredient_1.Ingredient, ingredient => ingredient.unit),
+    __metadata("design:type", Array)
+], Unit.prototype, "ingredients", void 0);
+Unit = __decorate([
     typeorm_1.Entity()
-], Ingredient);
-exports.Ingredient = Ingredient;
-//# sourceMappingURL=Ingredient.js.map
+], Unit);
+exports.Unit = Unit;
+//# sourceMappingURL=Unit.js.map

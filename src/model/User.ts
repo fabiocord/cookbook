@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import { Recipe } from "./Recipe";
 
 /**
  * Sample ORM entity
@@ -14,5 +15,8 @@ export class User {
 
     @Column({length: 128})
     public token: string;
+
+    @OneToMany(type => Recipe, recipe => recipe.user)
+    recipes: Recipe[];
 
 }

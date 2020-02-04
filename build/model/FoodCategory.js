@@ -10,40 +10,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const RecipeIngredient_1 = require("./RecipeIngredient");
-const Unit_1 = require("./Unit");
+const Recipe_1 = require("./Recipe");
 /**
  * Sample ORM entity
  */
-let Ingredient = class Ingredient {
+let FoodCategory = class FoodCategory {
+    /**
+     * Sample ORM entity
+     */
+    constructor() {
+        this.enabled = true;
+    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Ingredient.prototype, "id", void 0);
+], FoodCategory.prototype, "id", void 0);
 __decorate([
     typeorm_1.Column({ length: 100 }),
     __metadata("design:type", String)
-], Ingredient.prototype, "name", void 0);
+], FoodCategory.prototype, "name", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Ingredient.prototype, "description", void 0);
+], FoodCategory.prototype, "description", void 0);
 __decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], Ingredient.prototype, "image", void 0);
+    typeorm_1.Column(),
+    __metadata("design:type", Boolean)
+], FoodCategory.prototype, "enabled", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.ingredient) // note: we will create author property in the Photo class below
-    ,
+    typeorm_1.ManyToMany(type => Recipe_1.Recipe, recipe => recipe.foodCategories),
+    typeorm_1.JoinTable(),
     __metadata("design:type", Array)
-], Ingredient.prototype, "recipeIngredients", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.ingredients),
-    __metadata("design:type", Unit_1.Unit)
-], Ingredient.prototype, "unit", void 0);
-Ingredient = __decorate([
+], FoodCategory.prototype, "recipes", void 0);
+FoodCategory = __decorate([
     typeorm_1.Entity()
-], Ingredient);
-exports.Ingredient = Ingredient;
-//# sourceMappingURL=Ingredient.js.map
+], FoodCategory);
+exports.FoodCategory = FoodCategory;
+//# sourceMappingURL=FoodCategory.js.map

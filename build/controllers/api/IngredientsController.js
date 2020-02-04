@@ -31,6 +31,15 @@ let ApiIngredientController = class ApiIngredientController {
             return ingredient;
         });
     }
+    getIngredientsAction() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const ingredients = yield this.ingredients.getAll();
+            const data = ingredients.map(ingredient => {
+                return { lista: [ingredient] };
+            });
+            return data;
+        });
+    }
 };
 __decorate([
     typedi_1.Inject(),
@@ -43,6 +52,12 @@ __decorate([
     __metadata("design:paramtypes", [Ingredient_1.Ingredient]),
     __metadata("design:returntype", Promise)
 ], ApiIngredientController.prototype, "getOneIngredientAction", null);
+__decorate([
+    routing_controllers_1.Get('/'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ApiIngredientController.prototype, "getIngredientsAction", null);
 ApiIngredientController = __decorate([
     routing_controllers_1.JsonController('/api/ingredients')
 ], ApiIngredientController);

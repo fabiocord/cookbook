@@ -10,40 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const RecipeIngredient_1 = require("./RecipeIngredient");
-const Unit_1 = require("./Unit");
+const Recipe_1 = require("./Recipe");
 /**
  * Sample ORM entity
  */
-let Ingredient = class Ingredient {
+let ReceipInstruction = class ReceipInstruction {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Ingredient.prototype, "id", void 0);
+], ReceipInstruction.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ length: 100 }),
+    typeorm_1.Generated(),
+    __metadata("design:type", Number)
+], ReceipInstruction.prototype, "step", void 0);
+__decorate([
+    typeorm_1.Column({ length: 500 }),
     __metadata("design:type", String)
-], Ingredient.prototype, "name", void 0);
+], ReceipInstruction.prototype, "instruction", void 0);
 __decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Ingredient.prototype, "description", void 0);
-__decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], Ingredient.prototype, "image", void 0);
-__decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.ingredient) // note: we will create author property in the Photo class below
-    ,
-    __metadata("design:type", Array)
-], Ingredient.prototype, "recipeIngredients", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.ingredients),
-    __metadata("design:type", Unit_1.Unit)
-], Ingredient.prototype, "unit", void 0);
-Ingredient = __decorate([
+    typeorm_1.ManyToOne(type => Recipe_1.Recipe, recipe => recipe.recipeInstructions),
+    __metadata("design:type", Recipe_1.Recipe)
+], ReceipInstruction.prototype, "recipe", void 0);
+ReceipInstruction = __decorate([
     typeorm_1.Entity()
-], Ingredient);
-exports.Ingredient = Ingredient;
-//# sourceMappingURL=Ingredient.js.map
+], ReceipInstruction);
+exports.ReceipInstruction = ReceipInstruction;
+//# sourceMappingURL=RecipeInstruction.js.map

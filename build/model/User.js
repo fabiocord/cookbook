@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const Recipe_1 = require("./Recipe");
 /**
  * Sample ORM entity
  */
@@ -27,6 +28,10 @@ __decorate([
     typeorm_1.Column({ length: 128 }),
     __metadata("design:type", String)
 ], User.prototype, "token", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => Recipe_1.Recipe, recipe => recipe.user),
+    __metadata("design:type", Array)
+], User.prototype, "recipes", void 0);
 User = __decorate([
     typeorm_1.Entity()
 ], User);

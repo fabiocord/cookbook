@@ -10,40 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const RecipeIngredient_1 = require("./RecipeIngredient");
+const Recipe_1 = require("./Recipe");
+const Ingredient_1 = require("./Ingredient");
 const Unit_1 = require("./Unit");
 /**
  * Sample ORM entity
  */
-let Ingredient = class Ingredient {
+let RecipeIngredient = class RecipeIngredient {
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
     __metadata("design:type", Number)
-], Ingredient.prototype, "id", void 0);
+], RecipeIngredient.prototype, "id", void 0);
 __decorate([
-    typeorm_1.Column({ length: 100 }),
-    __metadata("design:type", String)
-], Ingredient.prototype, "name", void 0);
+    typeorm_1.ManyToOne(type => Recipe_1.Recipe, recipe => recipe.recipeIngredients),
+    __metadata("design:type", Recipe_1.Recipe)
+], RecipeIngredient.prototype, "recipe", void 0);
 __decorate([
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Ingredient.prototype, "description", void 0);
+    typeorm_1.ManyToOne(type => Ingredient_1.Ingredient, ingredient => ingredient.recipeIngredients),
+    __metadata("design:type", Ingredient_1.Ingredient)
+], RecipeIngredient.prototype, "ingredient", void 0);
 __decorate([
-    typeorm_1.Column({ length: 255 }),
-    __metadata("design:type", String)
-], Ingredient.prototype, "image", void 0);
+    typeorm_1.Column("decimal", { precision: 5, scale: 2 }),
+    __metadata("design:type", Number)
+], RecipeIngredient.prototype, "quantity", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => RecipeIngredient_1.RecipeIngredient, recipeIngredient => recipeIngredient.ingredient) // note: we will create author property in the Photo class below
-    ,
-    __metadata("design:type", Array)
-], Ingredient.prototype, "recipeIngredients", void 0);
-__decorate([
-    typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.ingredients),
+    typeorm_1.ManyToOne(type => Unit_1.Unit, unit => unit.recipeIngredients),
     __metadata("design:type", Unit_1.Unit)
-], Ingredient.prototype, "unit", void 0);
-Ingredient = __decorate([
+], RecipeIngredient.prototype, "unit", void 0);
+RecipeIngredient = __decorate([
     typeorm_1.Entity()
-], Ingredient);
-exports.Ingredient = Ingredient;
-//# sourceMappingURL=Ingredient.js.map
+], RecipeIngredient);
+exports.RecipeIngredient = RecipeIngredient;
+//# sourceMappingURL=RecipeIngredient.js.map
