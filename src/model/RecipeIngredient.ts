@@ -12,10 +12,10 @@ export class RecipeIngredient {
     @PrimaryGeneratedColumn()
     public id: number;
     
-    @ManyToOne(type => Recipe, recipe => recipe.recipeIngredients)
+    @ManyToOne(type => Recipe)
     recipe: Recipe;
      
-    @ManyToOne(type => Ingredient, ingredient => ingredient.recipeIngredients)
+    @ManyToOne(type => Ingredient)
     ingredient: Ingredient;
 
     @Column("decimal", { precision: 5, scale: 2 })

@@ -23,11 +23,11 @@ __decorate([
     __metadata("design:type", Number)
 ], RecipeIngredient.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => Recipe_1.Recipe, recipe => recipe.recipeIngredients),
+    typeorm_1.ManyToOne(type => Recipe_1.Recipe),
     __metadata("design:type", Recipe_1.Recipe)
 ], RecipeIngredient.prototype, "recipe", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => Ingredient_1.Ingredient, ingredient => ingredient.recipeIngredients),
+    typeorm_1.ManyToOne(type => Ingredient_1.Ingredient),
     __metadata("design:type", Ingredient_1.Ingredient)
 ], RecipeIngredient.prototype, "ingredient", void 0);
 __decorate([
