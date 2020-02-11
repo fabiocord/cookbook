@@ -1,1 +1,14 @@
+# Node modules
 node_modules
+
+# Build folder
+build
+
+# Environment variables, never commit this file
+.env
+
+# Ignore all log files
+*.log
+
+# Ignore vscode config folder
+.vscode
