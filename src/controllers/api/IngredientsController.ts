@@ -20,7 +20,7 @@ export class ApiIngredientController{
     async getIngredientsAction(): Promise<any> {
         const ingredients: Ingredient[] = await this.ingredients.getAll();
         const data = ingredients.map(ingredient => {
-          return  {lista : [ingredient]};
+          return  ingredient;
         }); 
         return data       
     }
