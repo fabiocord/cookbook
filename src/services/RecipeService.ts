@@ -13,7 +13,7 @@ export class RecipeService {
     private repo: RecipeRepository;
 
     public async getAll(): Promise<Recipe[]> {
-        return this.repo.find();
+        return this.repo.find({relations: ["user","foodCategories","recipeIngredients","recipeInstructions"]});
     }
 
     public async persist(recipe: Recipe): Promise<any> {
