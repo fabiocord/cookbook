@@ -2,6 +2,7 @@ import {Column, Entity, PrimaryGeneratedColumn, JoinTable, ManyToMany, OneToMany
 import { FoodCategory } from './FoodCategory';
 import { ReceipInstruction as RecipeInstruction } from "./RecipeInstruction";
 import { User } from "./User";
+import { RecipeIngredient } from './RecipeIngredient';
 
 /**
  * Sample ORM entity
@@ -33,6 +34,10 @@ export class Recipe {
 
     @OneToMany(type => RecipeInstruction, recipeInstruction => recipeInstruction.recipe) // note: we will create author property in the Photo class below
     recipeInstructions: RecipeInstruction[];
+
+    @OneToMany(type => RecipeIngredient, recipeIngredient => recipeIngredient.recipe) // note: we will create author property in the Photo class below
+    recipeIngredients: RecipeIngredient[];
+
 
     @ManyToOne(type => User, user => user.recipes) // note: we will create author property in the Photo class below
     user: User;
