@@ -15,5 +15,11 @@ database:
   logging: false
 
 # Remove this, sample extra config
+# Pagination 
+
+pagination:
+  rowsSkip: 5;
+  rowsNumber: 5;
+
 sample:
   title: A full node backend

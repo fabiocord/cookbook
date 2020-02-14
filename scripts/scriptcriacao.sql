@@ -13,21 +13,42 @@
 INSERT INTO public.food_category(name, description, enabled) VALUES ('Carnes','Receitas de carne',true);
 INSERT INTO public.food_category(name, description, enabled) VALUES ('Frutos do mar','Receitas de frutos do mar',true);
 INSERT INTO public.food_category(name, description, enabled) VALUES ('Carnes 2','Receitas de carne 2',false);
+INSERT INTO public.food_category(name, description, enabled) VALUES ('Massas','Receitas de massas',false);
+INSERT INTO public.food_category(name, description, enabled) VALUES ('Aves','Receitas de aves',false);
 
 INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
 SELECT 'Strognoff','Receita de strognoff' , 10, 30, '', '2020-02-11 02:16:00', u.id  from public."user" u where u.name = 'fabiocord';
-
 INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
 SELECT 'Bobó de camarão','Bobó de camarão do Fábio' , 5, 60, '', '2020-02-04 02:18:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Bife Entrecote','Bife Entecote com arroz piamontese' , 10, 30, '', '2020-02-11 02:16:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Moqueca de Peixe','Moqueca de namorado' , 5, 60, '', '2020-02-04 02:18:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Carré de Cordeiro','Carré de Cordeiro com arroz selvagem e salada' , 10, 30, '', '2020-02-11 02:16:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Caldeirada do mar','Caldeirada de Frutos do Mar' , 5, 60, '', '2020-02-04 02:18:00', u.id  from public."user" u where u.name = 'admin';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Pato selvagem','Pato no tucupi' , 10, 30, '', '2020-02-11 02:16:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Ostras Frescas','Ostras com limão ' , 5, 60, '', '2020-02-04 02:18:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Spaguetti a moda','Spaguetti a moda' , 10, 30, '', '2020-02-11 02:16:00', u.id  from public."user" u where u.name = 'fabiocord';
+INSERT INTO public.recipe(name, description, portions, "prepareTime", image, "dataInsercao", "userId")
+SELECT 'Tortéi','Massa com recheio de abóbora japonesa' , 5, 60, '', '2020-02-04 02:18:00', u.id  from public."user" u where u.name = 'fabiocord';
 
-INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId")
-Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Strognoff' and f.name = 'Carnes' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Strognoff' and f.name = 'Carnes' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Bobó de camarão' and f.name = 'Frutos do mar' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Strognoff' and f.name = 'Carnes 2' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Bife Entrecote' and f.name = 'Carnes' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Moqueca de Peixe' and f.name = 'Frutos do mar' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Carré de Cordeiro' and f.name = 'Carnes' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Caldeirada do mar' and f.name = 'Frutos do mar' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Pato selvagem' and f.name = 'Aves' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Ostras Frescas' and f.name = 'Frutos do mar' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Spaguetti a moda' and f.name = 'Massas' ;
+INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId") Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Tortéi' and f.name = 'Massas' ;
 
-INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId")
-Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Bobó de camarão' and f.name = 'Frutos do mar' ;
-
-INSERT INTO public.recipe_food_categories_food_category("recipeId", "foodCategoryId")
-Select r.id,f.id from public.recipe r, public.food_category f where r.name = 'Strognoff' and f.name = 'Carnes 2' ;
 
 INSERT INTO public.receip_instruction(instruction, "recipeId")	
 SELECT 'Cortar a carne em cubos. Reservar' , r.id from public.recipe r where r.name = 'Strognoff';

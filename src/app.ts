@@ -14,6 +14,8 @@ import bodyParser = require("body-parser");
  * Provide a configuration injectable.
  */
 const cfg = loadYAML(readFileSync('./resources/config.yml').toString());
+
+
 Container.provide([{ id: 'config', value: cfg }]);
 
 /**
