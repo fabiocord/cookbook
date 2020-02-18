@@ -15,7 +15,10 @@ export class RecipeIngredient {
     @ManyToOne(type => Recipe)
     recipe: Recipe;
      
-    @ManyToOne(type => Ingredient)
+    @ManyToOne(
+        type => Ingredient,
+        ingredient => ingredient.recipeIngredients,
+        {cascadeInsert: true, cascadeUpdate : true, cascadeRemove: true})
     ingredient: Ingredient;
 
     @Column("decimal", { precision: 5, scale: 2 })

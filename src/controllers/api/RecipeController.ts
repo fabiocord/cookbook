@@ -1,4 +1,4 @@
-import { JsonController, Get, QueryParams, QueryParam } from 'routing-controllers';
+import { JsonController, Get, QueryParams, QueryParam, Post, Body, BodyParam } from 'routing-controllers';
 import { Inject } from 'typedi';
 import { EntityFromParam } from 'typeorm-routing-controllers-extensions';
 import { Recipe } from '../../model/Recipe';
@@ -6,6 +6,7 @@ import { RecipeService } from '../../services/RecipeService';
 import { RecipeQuery } from '../../model/Recipe.query';
 import { readFileSync } from 'fs';
 import {load as loadYAML} from "js-yaml";
+import { Transaction } from 'typeorm';
 
 @JsonController('/api/recipes')
 export class ApiRecipeController{
@@ -41,8 +42,19 @@ export class ApiRecipeController{
         } catch (error) {
             console.log("Erro: "+error.message);            
             throw error;
+        }        
+    }
+
+     @Post('/')
+     async saveRecipeAction(@Body() recipe: any) : Promise<any> {
+        try {
+            const result = await this.recipes.persistTransaction(recipe);    
+            return result;
+        } catch (error) {
+            console.log("Erro: "+error.message);            
+            throw error;
         }
         
-    }
+     }      
 }
 

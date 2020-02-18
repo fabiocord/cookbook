@@ -16,7 +16,10 @@ export class ReceipInstruction {
     @Column({length: 500})
     public instruction: string;
 
-    @ManyToOne(type => Recipe, recipe => recipe.recipeInstructions)
-    recipe: Recipe;
+    @ManyToOne(
+        type => Recipe,
+        recipe => recipe.recipeInstructions         
+    )
+    public recipe: Recipe;
 
 }

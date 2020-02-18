@@ -7,6 +7,15 @@
  TRUNCATE public.recipe CASCADE;
  TRUNCATE public.user CASCADE;
  
+ ALTER SEQUENCE public.food_category_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.ingredient_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.receip_instruction_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.recipe_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.recipe_ingredient_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.unit_id_seq RESTART WITH 1;
+ ALTER SEQUENCE public.user_id_seq RESTART WITH 1;
+ 
+ 
  INSERT INTO public."user"(name, token)	VALUES ( 'admin', 'anjokndjksafnbskjdbn');
  INSERT INTO public."user"(name, token)	VALUES ( 'fabiocord', 'cvmxkmvlxczmvlkxzcmvz');
 

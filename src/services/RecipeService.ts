@@ -35,4 +35,13 @@ export class RecipeService {
     public async remove(recipe: Recipe): Promise<any> {
       return this.repo.remove(recipe);
     }
+
+    public async persistTransaction(recipe: any) : Promise<any> {
+        try {
+            const result = await this.repo.savewithObjects(recipe);
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
 }
