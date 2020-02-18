@@ -28,15 +28,26 @@ export class Recipe {
     @Column({length: 255})
     public image: string;
     
-    @ManyToMany(type => FoodCategory)
+    @ManyToMany(type => FoodCategory,        
+        {cascadeInsert: true, cascadeUpdate : true})
+
     @JoinTable()
     public foodCategories: FoodCategory[];
 
-    @OneToMany(type => RecipeInstruction, recipeInstruction => recipeInstruction.recipe) // note: we will create author property in the Photo class below
-    recipeInstructions: RecipeInstruction[];
+    @OneToMany(
+        type => RecipeInstruction,
+        recipeInstruction => recipeInstruction.recipe,
+        {cascadeInsert : true,cascadeUpdate: true}
+    ) // note: we will create author property in the Photo class below
 
-    @OneToMany(type => RecipeIngredient, recipeIngredient => recipeIngredient.recipe) // note: we will create author property in the Photo class below
-    recipeIngredients: RecipeIngredient[];
+    public recipeInstructions: RecipeInstruction[];
+
+    @OneToMany(
+        type => RecipeIngredient,
+        recipeIngredient => recipeIngredient.recipe,
+        {cascadeInsert: true, cascadeUpdate : true}
+    ) // note: we will create author property in the Photo class below
+    public recipeIngredients: RecipeIngredient[];
 
 
     @ManyToOne(type => User, user => user.recipes) // note: we will create author property in the Photo class below
@@ -44,6 +55,8 @@ export class Recipe {
 
     @Column()
     public dataInsercao: Date = new Date();
+    
+    
 
 
 

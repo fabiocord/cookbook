@@ -1,0 +1,94 @@
+{
+    "dataInsercao": "2020-02-17 02:16:00",
+    "name": "Caldinho de Sururu",
+    "description": "Caldo de Sururu na tijela",
+    "image": "",
+    "portions": 2,
+    "prepareTime": 60,
+    "user": {
+        "id": 2,
+        "name": "fabiocord",
+        "token": "cvmxkmvlxczmvlkxzcmvz"
+    },
+    "recipeIngredients": [
+        {
+            "quantity": "1.00",
+            "ingredient": {
+                "id": 3,
+                "name": "Cebola",
+                "description": "Cebola",
+                "image": "",
+                "unit": {
+                    "id": 2,
+                    "name": "Un",
+                    "description": "Unidades"
+                }
+            },
+            "unit": {
+                "id": 2,
+                "name": "Un",
+                "description": "Unidades"
+            },
+            "id": 4
+        },
+        {
+            "quantity": "1.00",
+            "ingredient": {
+                "id": 4,
+                "name": "Sal",
+                "description": "Sal",
+                "image": "",
+                "unit": {
+                    "id": 9,
+                    "name": "Ag",
+                    "description": "A gosto"
+                }
+            },
+            "unit": {
+                "id": 9,
+                "name": "Ag",
+                "description": "A gosto"
+            },
+            "id": 5
+        },
+        {
+            "quantity": "0.50",
+            "ingredient": {
+                "name": "Arroz branco",
+                "description": "Arroz tipo branco",
+                "image": "",
+                "unit": {
+                    "id": 1,
+                    "name": "Kg",
+                    "description": "Quilogramas"
+                },
+                "id": 9
+            },
+            "unit": {
+                "id": 1,
+                "name": "Kg",
+                "description": "Quilogramas"
+            },
+            "id": 6
+        }
+    ],
+    "recipeInstructions": [
+        {
+            "instruction": "Lavar o peixe",
+            "id": 5
+        },
+        {
+            "instruction": "Cortar em pequenos cubos",
+            "id": 6
+        }
+    ],
+    "foodCategories": [
+        {
+            "enabled": true,
+            "id": 2,
+            "name": "Frutos do mar",
+            "description": "Receitas de frutos do mar"
+        }
+    ],
+    "id": 11
+}
