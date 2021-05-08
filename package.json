@@ -38,7 +38,7 @@
     "routing-controllers": "0.7.0",
     "twig": "^1.10.5",
     "typedi": "0.5.2",
-    "typeorm": "^0.1.9",
+    "typeorm": "^0.2.25",
     "typeorm-routing-controllers-extensions": "^0.1.0",
     "typeorm-typedi-extensions": "^0.1.1"
   },
